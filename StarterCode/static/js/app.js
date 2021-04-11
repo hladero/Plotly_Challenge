@@ -1,3 +1,21 @@
+d3.json("samples.json").then((samples) => {
+
+    //var otu_ids = samples.samples[1];
+    var trace1= {
+        x: samples.samples[1],
+        y:[1,2,3,4,5,6,7,8,9,10],
+        type:"bar",
+        orientation: "h"
+    };
+    var data=[trace1];
+    var layout={
+        title: "top 10 otu-ids"
+    };
+
+    Plotly.newPlot("bar",data,layout);
+});
+
+
 d3.json('samples.json').then(({names})=>{
     names.forEach(name => {
         d3.select('#selDataset').append('option').text(name) 
@@ -18,58 +36,7 @@ function show() {
         }) 
         console.log(meta);
     })
-}
-function chart (){
-    d3.json("samples.json").then(({samples})=>{
-        var selection = d3.select("#selDataset").node().value;
-        var chart = d3.select('#bar').node();
-        var x=[];
-        var y=[];
+};
 
-        switch(dataset){
-            case "dataset 1":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-            case "dataset 2":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-            case "dataset 3":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-            case "dataset 4":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-            
-            case "dataset 5":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-            case "dataset 6":
-                x = [1, 2, 3, 4, 5];
-                y = [1, 2, 4, 8, 16];
-                break;
-                
-                
-                    
-        
-        
-        
-        
-        
-        
-        
-            }
 
-        var sampl = samples.filter (obj=> obj.otu_ids == data [0,10];
-            Object.entries())
-    })
-    data=[{
-        x: 
-        y:
-    }]
 
-}
