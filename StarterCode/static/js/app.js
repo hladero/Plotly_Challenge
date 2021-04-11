@@ -19,3 +19,57 @@ function show() {
         console.log(meta);
     })
 }
+function chart (){
+    d3.json("samples.json").then(({samples})=>{
+        var selection = d3.select("#selDataset").node().value;
+        var chart = d3.select('#bar').node();
+        var x=[];
+        var y=[];
+
+        switch(dataset){
+            case "dataset 1":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+            case "dataset 2":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+            case "dataset 3":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+            case "dataset 4":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+            
+            case "dataset 5":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+            case "dataset 6":
+                x = [1, 2, 3, 4, 5];
+                y = [1, 2, 4, 8, 16];
+                break;
+                
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+            }
+
+        var sampl = samples.filter (obj=> obj.otu_ids == data [0,10];
+            Object.entries())
+    })
+    data=[{
+        x: 
+        y:
+    }]
+
+}
