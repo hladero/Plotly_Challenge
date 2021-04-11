@@ -1,9 +1,8 @@
 d3.json("samples.json").then((samples) => {
-
     //var otu_ids = samples.samples[1];
     var trace1= {
-        x: samples.samples[1],
-        y:[1,2,3,4,5,6,7,8,9,10],
+        x: samples.samples.otu_ids,
+        y: samples.samples.samples_values,
         type:"bar",
         orientation: "h"
     };
@@ -14,6 +13,32 @@ d3.json("samples.json").then((samples) => {
 
     Plotly.newPlot("bar",data,layout);
 });
+
+function BubChart() {
+    d3.json("samples.json").then(({bublechart})=>{
+
+        var xvalues = bublechart.otu_ids;
+        var yvalues = bublechart.sample_values;
+        var markersize = bublechart.sample_values;
+        var markercolors= bublechart.otu_ids;
+
+        var traceA= {
+            x: xvalues,
+            y: yvalues,
+            mode: 'markers',
+            marker:{
+                size: markersize,
+                color: markercolors
+            }
+        };
+
+        var data = [traceA];
+        var layout={
+            title: "otu_ids"
+        };
+
+        Plotly.newPlot("bubble",data,layout)
+})};
 
 
 d3.json('samples.json').then(({names})=>{
@@ -37,6 +62,3 @@ function show() {
         console.log(meta);
     })
 };
-
-
-
