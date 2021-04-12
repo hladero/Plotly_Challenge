@@ -1,23 +1,3 @@
-function buildplot(selection){
-    d3.json("samples.json").then((samples) => { 
-    //var samples = samples.sample_values.slide(0,10);
-    var otu_ids = samples[1];
-    
-    console.log(samples.otu_ids);
-    var trace1= {
-        x: samples.samples.otu_ids,
-        y: samples.samples.samples_values,
-        type:"bar",
-        orientation: "h"
-    };
-    var data=[trace1];
-    var layout={
-        title: "top 10 otu-ids"
-    };
-
-    Plotly.newPlot("bar",data,layout);
-})};
-
 d3.json('samples.json').then(({names})=>{
     names.forEach(name => {
         d3.select('#selDataset').append('option').text(name) 
@@ -38,6 +18,23 @@ function show() {
         Object.entries(meta).forEach(([key,val])=> {
         d3.select('#sample-metadata').append('h5').text(key.toUpperCase()+': '+val)    
         }) 
+
+        //.........Build a Chart
+        
+        var trace1= {
+            x: sample.otu_ids.slice(0,10).reverse(),
+            x: sample.sample_values.slice(0,10).reverse(),
+            type:"bar",
+            orientation: "h"
+        };
+        var data=[trace1];
+        var layout={
+            title: "top 10 otu-ids"
+        };
+    
+        Plotly.newPlot("bar",data,layout);
+
+        //.......Build  a Bubble Chart
 
             var xvalues = sample.otu_ids;
             var yvalues = sample.sample_values;
