@@ -29,32 +29,35 @@ function show() {
         };
         var data=[trace1];
         var layout={
-            title: "top 10 otu-ids"
+            title: "top 10 OTU"
         };
     
         Plotly.newPlot("bar",data,layout);
 
         //.......Build  a Bubble Chart
 
-            var xvalues = sample.otu_ids;
-            var yvalues = sample.sample_values;
-            var markersize = sample.sample_values;
-            var markercolors= sample.otu_ids;
+            var xval = sample.otu_ids;
+            var yval = sample.sample_values;
+            var labels = sample.otu_labels;
         
-            var traceA= [{
-                x: xvalues,
-                y: yvalues,
+            var dataA= [{
+                x: xval,
+                y: yval,
+                text: labels,
                 mode: 'markers',
                 marker:{
-                    size: markersize,
-                    color: markercolors
+                    size: yval,
+                    color: xval,
+                    colorscale: "Earth"
                 }
             }]
-            var data = [traceA];
-            var layout={
-                title: "otu_ids"
+            var Bubble = {
+                
             };
-            Plotly.newPlot("bubble",data,layout);
+            var layout={
+                title: "OTU"
+            };
+            Plotly.newPlot("bubble",dataA,layout);
 
 
         console.log(sample);
