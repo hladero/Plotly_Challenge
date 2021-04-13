@@ -59,19 +59,5 @@ function show() {
             };
             Plotly.newPlot("bubble",dataA,layout);
 
-
-        console.log(sample);
     })
 };
-
-
-// d3.json("samples.json").then(({sample})=>{
-
-// });
-// function Handlesubmit() {
-//     d3.event.preventdefault();
-//     var id= d3.select('#selDataset').node().value
-//     console.log(id);
-//     buildplot(selection);
-
-// }
